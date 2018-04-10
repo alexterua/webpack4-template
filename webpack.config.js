@@ -16,7 +16,18 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack start template'
+      template: PATHS.source + '/index.pug'
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.pug$/,
+        loader: 'pug-loader',
+        options: {
+          pretty: true // структурированый html на выходе
+        }
+      }
+    ]
+  }
 };
